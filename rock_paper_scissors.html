@@ -1,0 +1,43 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+
+        function computerPlay() {
+            var c = Math.random();
+            c = Math.ceil(c * 3);
+
+            switch (c) {
+                case 1:
+                c = "rock";
+                break;
+                case 2:
+                c = "paper";
+                break;
+                case 3: 
+                c = "scissors";
+                break;
+                }
+            
+            return(c);
+        }
+
+        function userPlay() {
+            var u = prompt("Enter 'Rock', 'Paper' or 'Scissors'")
+            return u;
+        }
+        
+        function game(){
+            var user = userPlay();
+            user = user.toLowerCase();
+            var comp = computerPlay();
+            
+            var result = `You picked ${user} and the computer picked ${comp}`
+            alert(result)
+        }
+
+        game();
+        </script>
+    </body>
+</html>
