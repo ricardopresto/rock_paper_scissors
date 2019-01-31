@@ -10,13 +10,13 @@
 
             switch (c) {
                 case 1:
-                c = "rock";
+                c = "Rock";
                 break;
                 case 2:
-                c = "paper";
+                c = "Paper";
                 break;
                 case 3: 
-                c = "scissors";
+                c = "Scissors";
                 break;
                 }
             
@@ -25,19 +25,51 @@
 
         function userPlay() {
             var u = prompt("Enter 'Rock', 'Paper' or 'Scissors'")
+            u = u.toLowerCase();
+            u = u.charAt(0).toUpperCase() + u.slice(1);
             return u;
         }
         
-        function game(){
-            var user = userPlay();
-            user = user.toLowerCase();
-            var comp = computerPlay();
-            
-            var result = `You picked ${user} and the computer picked ${comp}`
-            alert(result)
-        }
+        function game(user, comp) {
+            var result;
+            var resultarray = [user, comp];
+            var resultstring = resultarray.toString();
+            switch (resultstring) {
+                case "Rock,Rock":
+                result = "You both picked Rock!";
+                break;
+                case "Paper,Paper":
+                result = "You both picked Paper!";
+                break;
+                case "Scissors,Scissors":
+                result = "You both picked Scissors!";
+                break;
+                case "Rock,Paper":
+                result = `You picked ${user} and the computer picked ${comp}! You lose!`;
+                break;
+                case "Rock,Scissors":
+                result = `You picked ${user} and the computer picked ${comp}! You win!`;
+                break;
+                case "Scissors,Paper":
+                result = `You picked ${user} and the computer picked ${comp}! You win!`;
+                break;
+                case "Scissors,Rock":
+                result = `You picked ${user} and the computer picked ${comp}! You lose!`;
+                break;
+                case "Paper,Rock":
+                result = `You picked ${user} and the computer picked ${comp}! You win!`;
+                break;
+                case "Paper,Scissors":
+                result = `You picked ${user} and the computer picked ${comp}! You lose!`;
+                break;
+            }
+            alert(result);
 
-        game();
+            }       
+            
+            game(userPlay(), computerPlay());
+        
+        
         </script>
     </body>
 </html>
