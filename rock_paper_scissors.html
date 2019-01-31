@@ -49,15 +49,18 @@
                 break;
                 case "Rock,Scissors":
                 result = `You picked ${user} and the computer picked ${comp}! You win!`;
+                score = score + 1;
                 break;
                 case "Scissors,Paper":
                 result = `You picked ${user} and the computer picked ${comp}! You win!`;
+                score = score + 1;
                 break;
                 case "Scissors,Rock":
                 result = `You picked ${user} and the computer picked ${comp}! You lose!`;
                 break;
                 case "Paper,Rock":
                 result = `You picked ${user} and the computer picked ${comp}! You win!`;
+                score = score + 1;
                 break;
                 case "Paper,Scissors":
                 result = `You picked ${user} and the computer picked ${comp}! You lose!`;
@@ -67,7 +70,16 @@
 
             }       
             
-            game(userPlay(), computerPlay());
+            function fivegames(){
+                for (x = 0; x<5; x++){
+                    game(userPlay(), computerPlay());
+                }
+            }
+            var score = 0;
+            fivegames();
+            alert(`You scored ${score} out of 5!`);
+
+            
         
         
         </script>
